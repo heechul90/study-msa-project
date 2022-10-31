@@ -1,0 +1,28 @@
+server:
+  port: 8070
+
+spring:
+  application:
+    name: support-server
+  profiles:
+    active: dev
+  config:
+    import: optional:configserver:http://localhost:8888/
+eureka:
+  client:
+    serviceUrl:
+      defultZone: http://localhost:8761/eureka
+
+#resilience4j
+resilience4j.circuitbreaker:
+  configs:
+    default:
+      slidingWindowSize: 100
+      per
+
+#actuator config
+management:
+  endpoints:
+    web:
+      exposure:
+        include: refresh
